@@ -18,6 +18,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // TODO: code project
     protected $fillable = [
         'name',
         'email',
