@@ -25,12 +25,12 @@ class AuthenticationController extends Controller
             'password' => bcrypt($validated['password']),
         ]);
 
-        $token = $user->createToken('auth_token')->plainTextToken;
-
         dd([
-            'access_token' => $token,
+            'access_token' => '',
             'token_type'   => 'Bearer',
         ]);
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
             'access_token' => $token,
             'token_type'   => 'Bearer',
