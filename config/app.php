@@ -123,5 +123,5 @@ return [
         'store'  => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'xefi_type' => env('MY_CUSTOM_DRIVER', 'franchise')
+    'xefi_type' => env('MY_CUSTOM_DRIVER', 'franchise'),
 ];

@@ -9,7 +9,8 @@ class NetboxClient
     public function __construct(
         protected string $baseUrl,
         protected string $token
-    ) {}
+    ) {
+    }
 
     protected function request(string $method, string $path, array $params = [])
     {
