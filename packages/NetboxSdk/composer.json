@@ -1,0 +1,15 @@
+{
+    "name": "nexeren/netbox-sdk",
+    "autoload": {
+        "psr-4": {
+            "Nexeren\\NetboxSdk\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nexeren\\NetboxSdk\\NetboxSdkServiceProvider"
+            ]
+        }
+    }
+}

@@ -9,7 +9,10 @@
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "lomkit/laravel-rest-api": "^2.11"
+        "lomkit/laravel-access-control": "^0.1.0",
+        "lomkit/laravel-rest-api": "^2.12",
+        "nexeren/netbox-sdk": "dev-develop",
+        "nexeren/pricing": "dev-develop"
     },
     "require-dev": {
         "laravel/tinker": "^2.10.1",
@@ -67,6 +70,16 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "nexeren/pricing" : {
+            "type" : "path",
+            "url" : "./packages/Pricing"
+        },
+        "nexeren/netbox-sdk" : {
+            "type" : "path",
+            "url" : "./packages/NetboxSdk"
+        }
+    }
 }

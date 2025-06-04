@@ -1,0 +1,15 @@
+{
+    "name": "nexeren/pricing",
+    "autoload": {
+        "psr-4": {
+            "Nexeren\\Pricing\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nexeren\\Pricing\\PricingServiceProvider"
+            ]
+        }
+    }
+}

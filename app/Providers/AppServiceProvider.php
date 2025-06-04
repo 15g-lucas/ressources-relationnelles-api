@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\BillingProduct;
+use App\Policies\BillingProductPolicy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      */
