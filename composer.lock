@@ -2006,16 +2006,16 @@
         },
         {
             "name": "lomkit/laravel-rest-api",
-            "version": "v2.14.0",
+            "version": "v2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Lomkit/laravel-rest-api.git",
-                "reference": "cb8262bfe20afe2910e21398777b854a9a8ea369"
+                "reference": "56fbd7e2192cf5b92876b6b2dbb1d143846415bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Lomkit/laravel-rest-api/zipball/cb8262bfe20afe2910e21398777b854a9a8ea369",
-                "reference": "cb8262bfe20afe2910e21398777b854a9a8ea369",
+                "url": "https://api.github.com/repos/Lomkit/laravel-rest-api/zipball/56fbd7e2192cf5b92876b6b2dbb1d143846415bd",
+                "reference": "56fbd7e2192cf5b92876b6b2dbb1d143846415bd",
                 "shasum": ""
             },
             "require": {
@@ -2068,7 +2068,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Lomkit/laravel-rest-api/issues",
-                "source": "https://github.com/Lomkit/laravel-rest-api/tree/v2.14.0"
+                "source": "https://github.com/Lomkit/laravel-rest-api/tree/v2.14.1"
             },
             "funding": [
                 {
@@ -2076,7 +2076,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-02T18:00:58+00:00"
+            "time": "2025-06-04T12:39:18+00:00"
         },
         {
             "name": "monolog/monolog",
