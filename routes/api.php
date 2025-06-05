@@ -15,4 +15,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthenticationController::class, 'logout']);
     Rest::resource('users', UsersController::class);
 });
-
