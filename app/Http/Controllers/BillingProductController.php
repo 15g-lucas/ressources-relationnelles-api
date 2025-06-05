@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\BillingProduct;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,12 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class BillingProductController extends Controller
 {
-    use AuthorizesRequests, ValidatesRequests;
+    use AuthorizesRequests;
+    use ValidatesRequests;
 
     public function index()
     {
         $user = Auth::user();
         $user->can('viewAny', BillingProduct::class);
+
         return BillingProduct::all();
     }
 

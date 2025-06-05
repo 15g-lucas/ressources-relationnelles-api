@@ -29,7 +29,8 @@ class MakePackageCommand extends Command
         $srcPath = "{$basePath}/src";
 
         if (File::exists($basePath)) {
-            $this->error("Package exist");
+            $this->error('Package exist');
+
             return;
         }
 
@@ -41,25 +42,24 @@ class MakePackageCommand extends Command
         File::put("{$srcPath}/{$name}.php", $this->getFacadeContent($name));
 
         File::put("{$srcPath}/{$name}ServiceProvider.php", $this->getServiceProviderContent($name));
-
     }
 
     protected function getComposerJson(string $name): string
     {
         return json_encode([
-            "name" => Str::slug($name) . "/package",
-            "autoload" => [
-                "psr-4" => [
-                    "Xefi\\{$name}\\" => "src/"
-                ]
+            'name'     => Str::slug($name).'/package',
+            'autoload' => [
+                'psr-4' => [
+                    "Xefi\\{$name}\\" => 'src/',
+                ],
             ],
-            "extra" => [
-                "laravel" => [
-                    "providers" => [
-                        "Xefi\\{$name}\\{$name}ServiceProvider"
-                    ]
-                ]
-            ]
+            'extra' => [
+                'laravel' => [
+                    'providers' => [
+                        "Xefi\\{$name}\\{$name}ServiceProvider",
+                    ],
+                ],
+            ],
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 

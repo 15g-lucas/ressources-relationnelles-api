@@ -3,10 +3,8 @@
 namespace App\Access\Controls;
 
 use App\Access\Perimeters\TestPerimeter;
-use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Lomkit\Access\Controls\Control;
 use Lomkit\Access\Perimeters\Perimeter;
 
