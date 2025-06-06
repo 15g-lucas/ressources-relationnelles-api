@@ -14,9 +14,8 @@ class Post extends Model
     // TODO: visibility
 
     protected $fillable = [
-        "text",
-        "url"
-
+        'text',
+        'url',
     ];
 
     public function user(): BelongsTo
