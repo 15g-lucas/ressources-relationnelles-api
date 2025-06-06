@@ -2,16 +2,19 @@
 
 namespace App\Rest\Resources;
 
+use App\Models\User;
 use App\Rest\Resource as RestResource;
+use Illuminate\Database\Eloquent\Model;
+use Lomkit\Rest\Http\Requests\RestRequest;
 
 class UserResource extends RestResource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
+     * @var class-string<Model>
      */
-    public static $model = \App\Models\User::class;
+    public static $model = User::class;
 
     /**
      * The default value for the pagination limit.
@@ -27,7 +30,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function fields(RestRequest $request): array
     {
         return [
             'id',
@@ -41,7 +44,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function relations(RestRequest $request): array
     {
         return [];
     }
@@ -53,7 +56,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function scopes(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function scopes(RestRequest $request): array
     {
         return [];
     }
@@ -65,7 +68,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function limits(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function limits(RestRequest $request): array
     {
         return [
             10,
@@ -81,7 +84,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function actions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function actions(RestRequest $request): array
     {
         return [];
     }
@@ -93,7 +96,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function instructions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function instructions(RestRequest $request): array
     {
         return [];
     }

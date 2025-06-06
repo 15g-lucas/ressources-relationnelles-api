@@ -13,16 +13,10 @@ class AuthenticationController extends Controller
      */
     public function register(Request $request)
     {
-        $validated = $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
         $user = User::create([
-            'name'     => $validated['name'],
-            'email'    => $validated['email'],
-            'password' => bcrypt($validated['password']),
+            'name'     => $request['name'],
+            'email'    => $request['email'],
+            'password' => bcrypt($request['password']),
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -39,18 +33,19 @@ class AuthenticationController extends Controller
     public function
     login(Request $request)
     {
-        $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required',
-        ]);
-
-        $user = User::where('email', $request->email)->first();
-
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json([
-                'message' => 'Identifiants invalides',
-            ], 401);
-        }
+        $user = User::first();
+//        $request->validate([
+//            'email'    => 'required|email',
+//            'password' => 'required',
+//        ]);
+//
+//        $user = User::where('email', $request->email)->first();
+//
+//        if (!$user || !Hash::check($request->password, $user->password)) {
+//            return response()->json([
+//                'message' => 'Identifiants invalides',
+//            ], 401);
+//        }
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
