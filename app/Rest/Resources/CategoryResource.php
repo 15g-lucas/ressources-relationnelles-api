@@ -2,18 +2,21 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Post;
+use App\Models\Category;
 use App\Rest\Resource;
-use Lomkit\Rest\Relations\BelongsTo;
+use Lomkit\Rest\Relations\HasMany;
+use App\Rest\Resources\PostResource;
+use Lomkit\Rest\Http\Requests\RestRequest;
 
-class PostResource extends Resource
+public function fields(RestRequest $request): array
+class CategoryResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = Post::class;
+    public static $model = Category::class;
 
     /**
      * The exposed fields that could be provided.
@@ -26,8 +29,7 @@ class PostResource extends Resource
     {
         return [
             'id',
-            'text',
-            'url',
+            'title',
         ];
     }
 
@@ -41,8 +43,7 @@ class PostResource extends Resource
     public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            BelongsTo::make('user', UserResource::class),
-            BelongsTo::make('category', CategoryResource::class),
+            HasMany::make('posts', PostResource::class),
         ];
     }
 
