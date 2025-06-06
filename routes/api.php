@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\BillingProductController;
 use App\Rest\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
