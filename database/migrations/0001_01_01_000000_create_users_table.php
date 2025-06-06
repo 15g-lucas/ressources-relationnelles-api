@@ -22,6 +22,7 @@ return new class() extends Migration {
             $table->string('zip_code');
             $table->string('email')->unique();
             $table->string('password');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });
