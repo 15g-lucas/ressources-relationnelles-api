@@ -11,10 +11,12 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
+    // TODO: visibility
+
     protected $fillable = [
         "text",
         "url"
-        // "visibility"
+
     ];
 
     public function user(): BelongsTo
