@@ -42,7 +42,7 @@ class PostResource extends Resource
     {
         return [
             BelongsTo::make('user', UserResource::class),
-            BelongsTo::make('categories', CategoryResource::class),
+            BelongsTo::make('category', CategoryResource::class),
         ];
     }
 
