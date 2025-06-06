@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Rest\Resource as RestResource;
 use Illuminate\Database\Eloquent\Model;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\HasMany;
 
 class UserResource extends RestResource
 {
@@ -46,7 +47,9 @@ class UserResource extends RestResource
      */
     public function relations(RestRequest $request): array
     {
-        return [];
+        return [
+            HasMany::make('posts', PostResource::class)
+        ];
     }
 
     /**
