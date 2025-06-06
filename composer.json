@@ -12,7 +12,8 @@
         "lomkit/laravel-access-control": "^0.1.0",
         "lomkit/laravel-rest-api": "^2.12",
         "nexeren/netbox-sdk": "dev-develop",
-        "nexeren/pricing": "dev-develop"
+        "nexeren/pricing": "dev-develop",
+        "spatie/laravel-activitylog": "^4.10"
     },
     "require-dev": {
         "laravel/tinker": "^2.10.1",
