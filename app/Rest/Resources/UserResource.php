@@ -48,7 +48,7 @@ class UserResource extends RestResource
     public function relations(RestRequest $request): array
     {
         return [
-            HasMany::make('posts', PostResource::class)
+            HasMany::make('posts', PostResource::class),
         ];
     }
 

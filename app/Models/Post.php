@@ -12,8 +12,8 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        "text",
-        "url"
+        'text',
+        'url',
         // "visibility"
     ];
 
