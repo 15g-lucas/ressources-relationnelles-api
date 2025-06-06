@@ -30,8 +30,7 @@ class AuthenticationController extends Controller
     /**
      * Connecte un utilisateur et retourne un token.
      */
-    public function
-    login(Request $request)
+    public function login(Request $request)
     {
         $user = User::first();
 //        $request->validate([
