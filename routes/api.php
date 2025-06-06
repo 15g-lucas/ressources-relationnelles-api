@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Rest\Controllers\CategoryController;
 use App\Rest\Controllers\PostsController;
 use App\Rest\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Rest::resource('users', UsersController::class);
     Rest::resource('posts', PostsController::class);
 });
+
+Rest::resource('categories', CategoryController::class);
