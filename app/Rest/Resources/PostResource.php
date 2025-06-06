@@ -2,27 +2,18 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\User;
-use App\Rest\Resource as RestResource;
-use Illuminate\Database\Eloquent\Model;
-use Lomkit\Rest\Http\Requests\RestRequest;
-use Lomkit\Rest\Relations\HasMany;
+use App\Models\Post;
+use App\Rest\Resource;
+use Lomkit\Rest\Relations\BelongsTo;
 
-class UserResource extends RestResource
+class PostResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<Model>
+     * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = User::class;
-
-    /**
-     * The default value for the pagination limit.
-     *
-     * @var int
-     */
-    public int $defaultLimit = 50;
+    public static $model = Post::class;
 
     /**
      * The exposed fields that could be provided.
@@ -31,18 +22,12 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function fields(RestRequest $request): array
+    public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
             'id',
-            'username',
-            'firstname',
-            'lastname',
-            'date_of_birth',
-            'profile_picture',
-            'phone',
-            'city',
-            'zip_code',
+            'text',
+            'url',
         ];
     }
 
@@ -53,10 +38,10 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function relations(RestRequest $request): array
+    public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            HasMany::make('posts', PostResource::class),
+            BelongsTo::make('user', UserResource::class),
         ];
     }
 
@@ -67,7 +52,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function scopes(RestRequest $request): array
+    public function scopes(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [];
     }
@@ -79,7 +64,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function limits(RestRequest $request): array
+    public function limits(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
             10,
@@ -95,7 +80,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function actions(RestRequest $request): array
+    public function actions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [];
     }
@@ -107,7 +92,7 @@ class UserResource extends RestResource
      *
      * @return array
      */
-    public function instructions(RestRequest $request): array
+    public function instructions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [];
     }
