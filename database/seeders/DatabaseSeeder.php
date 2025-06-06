@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'lastname'  => 'User',
             'phone'  => 'User',
             'email' => 'test@example.com',
+
         ]);
 
     }
