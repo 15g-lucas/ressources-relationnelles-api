@@ -11,7 +11,6 @@ Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthenticationController::class, 'me']);
-    Route::resource('/billing', BillingProductController::class);
     Route::post('/logout', [AuthenticationController::class, 'logout']);
     Rest::resource('users', UsersController::class);
 });
