@@ -17,9 +17,9 @@ return new class() extends Migration {
             $table->string('lastname');
             $table->date('date_of_birth')->nullable();
             $table->string('profile_picture')->nullable();
-            $table->string('phone');
-            $table->string('city');
-            $table->string('zip_code');
+            $table->string('phone')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip_code')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->softDeletes();
