@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Rest\Resource;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
-use Lomkit\Rest\Relations\HasMany;
 
 class PostResource extends Resource
 {
