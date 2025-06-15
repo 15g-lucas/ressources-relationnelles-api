@@ -58,7 +58,7 @@ class UserResource extends RestResource
     {
         return [
             HasMany::make('posts', PostResource::class),
-            BelongsToMany::make('consulted_posts', UserResource::class),
+            BelongsToMany::make('consulted_posts', PostResource::class),
         ];
     }
 

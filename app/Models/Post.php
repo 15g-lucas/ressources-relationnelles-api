@@ -31,6 +31,7 @@ class Post extends Model
 
     public function user_consulted(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'consultations')
+        ->withTimestamps();
     }
 }
