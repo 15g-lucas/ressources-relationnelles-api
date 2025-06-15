@@ -8,7 +8,7 @@ use Lomkit\Rest\Relations\HasMany;
 use App\Rest\Resources\PostResource;
 use Lomkit\Rest\Http\Requests\RestRequest;
 
-public function fields(RestRequest $request): array
+
 class CategoryResource extends Resource
 {
     /**
