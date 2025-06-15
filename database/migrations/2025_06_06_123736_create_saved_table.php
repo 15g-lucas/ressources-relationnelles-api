@@ -14,8 +14,8 @@ return new class() extends Migration {
     {
         Schema::create('saved', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Post::class);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Post::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
