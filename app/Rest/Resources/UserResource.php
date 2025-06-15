@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Rest\Resource as RestResource;
 use Illuminate\Database\Eloquent\Model;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\BelongsToMany;
 use Lomkit\Rest\Relations\HasMany;
 
 class UserResource extends RestResource
@@ -57,6 +58,8 @@ class UserResource extends RestResource
     {
         return [
             HasMany::make('posts', PostResource::class),
+            BelongsToMany::make('saved_posts', PostResource::class),
+            BelongsToMany::make('favorite_posts', PostResource::class),
         ];
     }
 
