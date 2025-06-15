@@ -4,11 +4,9 @@ namespace App\Rest\Resources;
 
 use App\Models\Category;
 use App\Rest\Resource;
-use Lomkit\Rest\Relations\HasMany;
-use App\Rest\Resources\PostResource;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\HasMany;
 
-public function fields(RestRequest $request): array
 class CategoryResource extends Resource
 {
     /**
