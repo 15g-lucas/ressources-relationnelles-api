@@ -5,6 +5,7 @@ namespace App\Rest\Resources;
 use App\Models\Post;
 use App\Rest\Resource;
 use Lomkit\Rest\Relations\BelongsTo;
+use Lomkit\Rest\Relations\BelongsToMany;
 
 class PostResource extends Resource
 {
@@ -43,6 +44,7 @@ class PostResource extends Resource
         return [
             BelongsTo::make('user', UserResource::class),
             BelongsTo::make('category', CategoryResource::class),
+            BelongsToMany::make('user_consulted', UserResource::class),
         ];
     }
 
