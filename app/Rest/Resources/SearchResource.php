@@ -5,7 +5,6 @@ namespace App\Rest\Resources;
 use App\Models\Search;
 use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
-use Lomkit\Rest\Relations\BelongsTo;
 
 class SearchResource extends Resource
 {
@@ -95,4 +94,3 @@ class SearchResource extends Resource
         return [];
     }
 }
-
