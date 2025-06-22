@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Rest\Controllers\CategoryController;
 use App\Rest\Controllers\PostsController;
+use App\Rest\Controllers\SearchController;
 use App\Rest\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
@@ -18,3 +19,4 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Rest::resource('categories', CategoryController::class);
+Rest::resource('searches', SearchController::class);
