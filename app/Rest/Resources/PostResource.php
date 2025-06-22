@@ -4,8 +4,8 @@ namespace App\Rest\Resources;
 
 use App\Models\Post;
 use App\Rest\Resource;
-use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\BelongsTo;
 
 class PostResource extends Resource
 {
