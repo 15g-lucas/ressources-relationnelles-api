@@ -4,9 +4,8 @@ namespace App\Rest\Resources;
 
 use App\Models\Category;
 use App\Rest\Resource;
-use Lomkit\Rest\Relations\HasMany;
-use App\Rest\Resources\PostResource;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\HasMany;
 
 class CategoryResource extends Resource
 {
@@ -24,7 +23,6 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-
     public function fields(RestRequest $request): array
     {
         return [
@@ -40,7 +38,6 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-
     public function relations(RestRequest $request): array
     {
         return [
@@ -67,7 +64,6 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-
     public function limits(RestRequest $request): array
     {
         return [
@@ -84,7 +80,6 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-
     public function actions(RestRequest $request): array
     {
         return [];
@@ -97,7 +92,6 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-
     public function instructions(RestRequest $request): array
     {
         return [];
