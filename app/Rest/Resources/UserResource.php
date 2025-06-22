@@ -35,6 +35,14 @@ class UserResource extends RestResource
     {
         return [
             'id',
+            'username',
+            'firstname',
+            'lastname',
+            'date_of_birth',
+            'profile_picture',
+            'phone',
+            'city',
+            'zip_code',
         ];
     }
 
