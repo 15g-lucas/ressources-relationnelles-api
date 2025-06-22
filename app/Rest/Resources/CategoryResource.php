@@ -8,7 +8,6 @@ use Lomkit\Rest\Relations\HasMany;
 use App\Rest\Resources\PostResource;
 use Lomkit\Rest\Http\Requests\RestRequest;
 
-public function fields(RestRequest $request): array
 class CategoryResource extends Resource
 {
     /**
@@ -25,7 +24,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function fields(RestRequest $request): array
     {
         return [
             'id',
@@ -40,7 +39,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function relations(RestRequest $request): array
     {
         return [
             HasMany::make('posts', PostResource::class),
@@ -54,7 +53,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function scopes(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function scopes(RestRequest $request): array
     {
         return [];
     }
@@ -66,7 +65,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function limits(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function limits(RestRequest $request): array
     {
         return [
             10,
@@ -82,7 +81,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function actions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function actions(RestRequest $request): array
     {
         return [];
     }
@@ -94,7 +93,7 @@ class CategoryResource extends Resource
      *
      * @return array
      */
-    public function instructions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function instructions(RestRequest $request): array
     {
         return [];
     }
