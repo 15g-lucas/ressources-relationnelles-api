@@ -17,7 +17,7 @@ class SearchFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'text' => $this->faker->words(2, true),
         ];
     }
 }
