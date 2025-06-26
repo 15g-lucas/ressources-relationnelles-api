@@ -14,9 +14,9 @@ class AuthenticationController extends Controller
     public function register(Request $request)
     {
         $user = User::create([
-            'name'     => $request['name'],
-            'email'    => $request['email'],
-            'password' => bcrypt($request['password']),
+            'username'     => $request['name'],
+            'email'        => $request['email'],
+            'password'     => bcrypt($request['password']),
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
