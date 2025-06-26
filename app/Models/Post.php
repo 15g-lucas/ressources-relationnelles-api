@@ -29,15 +29,22 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+<<<<<<< favorites
     public function user_saved(): BelongsToMany
+=======
+    public function usersaved(): BelongsToMany
+>>>>>>> develop
     {
         return $this->belongsToMany(User::class, 'saved')
         ->withTimestamps();
     }
+<<<<<<< favorites
 
     public function user_added_to_favorites(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'favorites')
         ->withTimestamps();
     }
+=======
+>>>>>>> develop
 }
