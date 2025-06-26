@@ -7,8 +7,6 @@ use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
-use App\Rest\Resources\UserResource;
-use App\Rest\Resources\CategoryResource;
 
 class PostResource extends Resource
 {
