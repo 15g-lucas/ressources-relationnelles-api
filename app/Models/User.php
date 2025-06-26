@@ -61,7 +61,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class, 'consultations')
         ->withTimestamps();
     }
-    
+
     public function savedposts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'saved')

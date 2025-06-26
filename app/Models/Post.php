@@ -29,13 +29,12 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-
     public function user_consulted(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'consultations')
         ->withTimestamps();
     }
-        
+
     public function usersaved(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'saved')
