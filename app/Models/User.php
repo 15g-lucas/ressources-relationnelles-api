@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\State;
+use App\Enums\Type;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -40,6 +43,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = [
+        'state' => State::class,
+        'type' => Type::class,
+    ];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -75,4 +83,19 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class, 'shared')
         ->withTimestamps();
     }
+
+    public function relations(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'relations', 'user1_id', 'user2_id')
+        ->withPivot('type', 'state')
+        ->withTimestamps();
+    }
+
+    public function related_to_me(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'relations', 'user2_id', 'user1_id')
+        ->withPivot('type', 'state')
+        ->withTimestamps();
+    }
+
 }
