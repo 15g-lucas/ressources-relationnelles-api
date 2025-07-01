@@ -62,6 +62,8 @@ class UserResource extends RestResource
             BelongsToMany::make('favorite_posts', PostResource::class),
             BelongsToMany::make('consulted_posts', PostResource::class),
             BelongsToMany::make('shared_posts', PostResource::class),
+            BelongsToMany::make('relations', UserResource::class),
+            BelongsToMany::make('related_to_me', UserResource::class),
         ];
     }
 

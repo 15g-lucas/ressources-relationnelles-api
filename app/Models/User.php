@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -79,6 +80,21 @@ class User extends Authenticatable
     public function shared_posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'shared')
+        ->withTimestamps();
+    }
+
+    public function relations(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'relations', 'user1_id', 'user2_id')
+        ->withPivot('type', 'state')
+        ->withTimestamps();
+    }
+
+    public function related_to_me(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'relations', 'user2_id', 'user1_id')
+        ->using(Relation::class)
+        ->withPivot('type', 'state')
         ->withTimestamps();
     }
 
