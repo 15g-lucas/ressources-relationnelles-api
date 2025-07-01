@@ -36,9 +36,15 @@ class Post extends Model
         ->withTimestamps();
     }
 
-    public function usersaved(): BelongsToMany
+    public function user_saved(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'saved')
+        ->withTimestamps();
+    }
+
+    public function user_added_to_favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'favorites')
         ->withTimestamps();
     }
 

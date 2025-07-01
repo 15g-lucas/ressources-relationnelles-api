@@ -46,8 +46,9 @@ class PostResource extends Resource
         return [
             BelongsTo::make('user', UserResource::class),
             BelongsTo::make('category', CategoryResource::class),
+            BelongsToMany::make('user_saved', UserResource::class),
+            BelongsToMany::make('user_added_to_favorites', UserResource::class),
             BelongsToMany::make('user_consulted', UserResource::class),
-            BelongsToMany::make('usersaved', UserResource::class),
             BelongsToMany::make('user_shared', UserResource::class),
             HasMany::make('comments', CommentResource::class),
         ];
