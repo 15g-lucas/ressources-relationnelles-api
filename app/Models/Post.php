@@ -34,4 +34,10 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'saved')
         ->withTimestamps();
     }
+
+    public function user_shared(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'shared')
+        ->withTimestamps();
+    }
 }

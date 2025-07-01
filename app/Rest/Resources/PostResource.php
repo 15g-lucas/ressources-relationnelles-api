@@ -45,6 +45,7 @@ class PostResource extends Resource
             BelongsTo::make('user', UserResource::class),
             BelongsTo::make('category', CategoryResource::class),
             BelongsToMany::make('usersaved', UserResource::class),
+            BelongsToMany::make('user_shared', UserResource::class),
         ];
     }
 
