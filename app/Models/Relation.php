@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
 use App\Enums\State;
 use App\Enums\Type;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Relation extends Pivot
 {
