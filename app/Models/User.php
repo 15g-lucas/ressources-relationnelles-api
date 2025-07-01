@@ -72,7 +72,7 @@ class User extends Authenticatable
         ->withTimestamps();
     }
 
-    public function savedposts(): BelongsToMany
+    public function saved_posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'saved')
         ->withTimestamps();
@@ -96,5 +96,10 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'relations', 'user2_id', 'user1_id')
         ->withPivot('type', 'state')
         ->withTimestamps();
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }
