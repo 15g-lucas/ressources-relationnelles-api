@@ -75,4 +75,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class, 'shared')
         ->withTimestamps();
     }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
