@@ -43,11 +43,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $casts = [
-        'state' => State::class,
-        'type' => Type::class,
-    ];
-
     /**
      * Get the attributes that should be cast.
      *
@@ -94,6 +89,7 @@ class User extends Authenticatable
     public function related_to_me(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'relations', 'user2_id', 'user1_id')
+        ->using(Relation::class)
         ->withPivot('type', 'state')
         ->withTimestamps();
     }
