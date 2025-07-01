@@ -18,7 +18,7 @@ return new class() extends Migration {
             $table->enum('state', ['pending', 'accepted', 'refused']);
             $table->timestamps();
 
-            $table->unique('user1_id', 'user2_id');
+            $table->unique(['user1_id', 'user2_id']);
         });
     }
 
