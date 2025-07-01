@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     protected $casts = [
         'state' => State::class,
-        'type' => Type::class,
+        'type'  => Type::class,
     ];
 
     /**
@@ -97,5 +97,4 @@ class User extends Authenticatable
         ->withPivot('type', 'state')
         ->withTimestamps();
     }
-
 }
