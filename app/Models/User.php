@@ -56,6 +56,12 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function consulted_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'consultations')
+        ->withTimestamps();
+    }
+
     public function savedposts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'saved')
