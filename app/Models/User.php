@@ -23,7 +23,9 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'firstname',
+        'lastname',
         'email',
         'password',
     ];
@@ -60,5 +62,28 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'exploited')
         ->withTimestamps();
+    }
+
+    public function consulted_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'consultations')
+        ->withTimestamps();
+    }
+
+    public function saved_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'saved')
+        ->withTimestamps();
+    }
+
+    public function shared_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'shared')
+        ->withTimestamps();
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }

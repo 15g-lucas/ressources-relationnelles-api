@@ -4,8 +4,10 @@ namespace App\Rest\Resources;
 
 use App\Models\Post;
 use App\Rest\Resource;
+use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
+use Lomkit\Rest\Relations\HasMany;
 
 class PostResource extends Resource
 {
@@ -23,7 +25,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function fields(RestRequest $request): array
     {
         return [
             'id',
@@ -39,12 +41,16 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function relations(RestRequest $request): array
     {
         return [
             BelongsTo::make('user', UserResource::class),
             BelongsTo::make('category', CategoryResource::class),
             BelongsToMany::make('user_exploited', UserResource::class),
+            BelongsToMany::make('user_consulted', UserResource::class),
+            BelongsToMany::make('user_saved', UserResource::class),
+            BelongsToMany::make('user_shared', UserResource::class),
+            HasMany::make('comments', CommentResource::class),
         ];
     }
 
@@ -55,7 +61,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function scopes(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function scopes(RestRequest $request): array
     {
         return [];
     }
@@ -67,7 +73,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function limits(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function limits(RestRequest $request): array
     {
         return [
             10,
@@ -83,7 +89,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function actions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function actions(RestRequest $request): array
     {
         return [];
     }
@@ -95,7 +101,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function instructions(\Lomkit\Rest\Http\Requests\RestRequest $request): array
+    public function instructions(RestRequest $request): array
     {
         return [];
     }

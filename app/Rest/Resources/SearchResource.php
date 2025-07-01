@@ -2,19 +2,18 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Category;
+use App\Models\Search;
 use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
-use Lomkit\Rest\Relations\HasMany;
 
-class CategoryResource extends Resource
+class SearchResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = Category::class;
+    public static $model = Search::class;
 
     /**
      * The exposed fields that could be provided.
@@ -27,7 +26,7 @@ class CategoryResource extends Resource
     {
         return [
             'id',
-            'title',
+            'text',
         ];
     }
 
@@ -40,9 +39,7 @@ class CategoryResource extends Resource
      */
     public function relations(RestRequest $request): array
     {
-        return [
-            HasMany::make('posts', PostResource::class),
-        ];
+        return [];
     }
 
     /**

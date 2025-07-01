@@ -2,19 +2,20 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Category;
+use App\Models\Comment;
 use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
+use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\HasMany;
 
-class CategoryResource extends Resource
+class CommentResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = Category::class;
+    public static $model = Comment::class;
 
     /**
      * The exposed fields that could be provided.
@@ -27,7 +28,7 @@ class CategoryResource extends Resource
     {
         return [
             'id',
-            'title',
+            'comment',
         ];
     }
 
@@ -41,7 +42,10 @@ class CategoryResource extends Resource
     public function relations(RestRequest $request): array
     {
         return [
-            HasMany::make('posts', PostResource::class),
+            BelongsTo::make('user', UserResource::class),
+            BelongsTo::make('post', PostResource::class),
+            BelongsTo::make('comment', CommentResource::class),
+            HasMany::make('child_comments', CommentResource::class),
         ];
     }
 

@@ -59,6 +59,9 @@ class UserResource extends RestResource
         return [
             HasMany::make('posts', PostResource::class),
             BelongsToMany::make('exploited_posts', PostResource::class),
+            BelongsToMany::make('consulted_posts', PostResource::class),
+            BelongsToMany::make('saved_posts', PostResource::class),
+            BelongsToMany::make('shared_posts', PostResource::class),
         ];
     }
 

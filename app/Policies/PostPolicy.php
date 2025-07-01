@@ -4,5 +4,12 @@ namespace App\Policies;
 
 class PostPolicy
 {
-    // TODO ?
+    /**
+     * Create a new policy instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+
 }

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Rest\Controllers\CategoryController;
+use App\Rest\Controllers\CommentController;
 use App\Rest\Controllers\PostsController;
+use App\Rest\Controllers\SearchController;
 use App\Rest\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
@@ -15,6 +17,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthenticationController::class, 'logout']);
     Rest::resource('users', UsersController::class);
     Rest::resource('posts', PostsController::class);
+    Rest::resource('comments', CommentController::class);
 });
 
 Rest::resource('categories', CategoryController::class);
+Rest::resource('searches', SearchController::class);
