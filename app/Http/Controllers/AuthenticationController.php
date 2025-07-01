@@ -14,11 +14,11 @@ class AuthenticationController extends Controller
     public function register(Request $request)
     {
         $user = User::create([
-            'username'     => $request['username'],
+            'username'      => $request['username'],
             'firstname'     => $request['firstname'],
-            'lastname'     => $request['lastname'],
-            'email'    => $request['email'],
-            'password' => bcrypt($request['password']),
+            'lastname'      => $request['lastname'],
+            'email'         => $request['email'],
+            'password'      => bcrypt($request['password']),
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
