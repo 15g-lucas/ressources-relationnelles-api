@@ -14,8 +14,8 @@ class Comment extends Model
 
     protected $fillable = [
         'comment',
-        ];
-    
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -35,5 +35,4 @@ class Comment extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
 }
