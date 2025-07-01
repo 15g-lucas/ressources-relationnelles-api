@@ -17,8 +17,8 @@ return new class() extends Migration {
             $table->timestamps();
             $table->longText('text');
             $table->string('url')->nullable();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Category::class)->constrained();
         });
     }
 
