@@ -7,6 +7,7 @@ use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
+use Lomkit\Rest\Relations\HasMany;
 
 class PostResource extends Resource
 {
@@ -47,6 +48,9 @@ class PostResource extends Resource
             BelongsTo::make('category', CategoryResource::class),
             BelongsToMany::make('user_saved', UserResource::class),
             BelongsToMany::make('user_added_to_favorites', UserResource::class),
+            BelongsToMany::make('user_consulted', UserResource::class),
+            BelongsToMany::make('user_shared', UserResource::class),
+            HasMany::make('comments', CommentResource::class),
         ];
     }
 
