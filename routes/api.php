@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthenticationController;
 use App\Rest\Controllers\CategoryController;
 use App\Rest\Controllers\CommentController;
 use App\Rest\Controllers\PostsController;
+use App\Rest\Controllers\QuizController;
+use App\Rest\Controllers\QuizzesContentController;
 use App\Rest\Controllers\SearchController;
 use App\Rest\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +24,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Rest::resource('categories', CategoryController::class);
 Rest::resource('searches', SearchController::class);
+Rest::resource('quizzes', QuizController::class);
+Rest::resource('quizzes_contents', QuizzesContentController::class);
