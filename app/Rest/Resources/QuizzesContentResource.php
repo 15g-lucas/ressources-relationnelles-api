@@ -2,7 +2,6 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Quiz;
 use App\Models\Quizzes_Content;
 use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;

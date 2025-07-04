@@ -4,7 +4,6 @@ namespace App\Rest\Resources;
 
 use App\Models\Quiz;
 use App\Rest\Resource;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\HasMany;
