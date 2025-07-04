@@ -59,6 +59,12 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function exploited_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'exploited')
+        ->withTimestamps();
+    }
+
     public function consulted_posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'consultations')
