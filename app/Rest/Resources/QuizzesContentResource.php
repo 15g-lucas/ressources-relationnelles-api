@@ -2,11 +2,10 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Quiz;
 use App\Models\Quizzes_Content;
 use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
-use Lomkit\Rest\Relations\BelongsToMany;
+use Lomkit\Rest\Relations\BelongsTo;
 
 class QuizzesContentResource extends Resource
 {
@@ -28,7 +27,12 @@ class QuizzesContentResource extends Resource
     {
         return [
             'id',
-            'title',
+            'question',
+            'response_1',
+            'response_2',
+            'response_3',
+            'response_4',
+            'good_response',
         ];
     }
 
@@ -42,7 +46,7 @@ class QuizzesContentResource extends Resource
     public function relations(RestRequest $request): array
     {
         return [
-            BelongsToMany::make('quiz', QuizResource::class),
+            BelongsTo::make('quiz', QuizResource::class),
         ];
     }
 

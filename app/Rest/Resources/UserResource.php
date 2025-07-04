@@ -63,7 +63,7 @@ class UserResource extends RestResource
             BelongsToMany::make('consulted_posts', PostResource::class),
             BelongsToMany::make('shared_posts', PostResource::class),
             BelongsToMany::make('played_quizzes', QuizResource::class),
-            ];
+        ];
     }
 
     /**

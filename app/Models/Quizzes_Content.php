@@ -17,10 +17,10 @@ class Quizzes_Content extends Model
         'response_2',
         'response_3',
         'response_4',
-        'good_response'
+        'good_response',
     ];
 
-    public function quiz(): BelongsTo 
+    public function quiz(): BelongsTo
     {
         return $this->belongsTo(Quiz::class);
     }
