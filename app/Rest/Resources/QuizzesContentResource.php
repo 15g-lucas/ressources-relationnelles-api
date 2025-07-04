@@ -2,28 +2,20 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\User;
-use App\Rest\Resource as RestResource;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Quiz;
+use App\Models\Quizzes_Content;
+use App\Rest\Resource;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsToMany;
-use Lomkit\Rest\Relations\HasMany;
 
-class UserResource extends RestResource
+class QuizzesContentResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<Model>
+     * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = User::class;
-
-    /**
-     * The default value for the pagination limit.
-     *
-     * @var int
-     */
-    public int $defaultLimit = 50;
+    public static $model = Quizzes_Content::class;
 
     /**
      * The exposed fields that could be provided.
@@ -36,14 +28,7 @@ class UserResource extends RestResource
     {
         return [
             'id',
-            'username',
-            'firstname',
-            'lastname',
-            'date_of_birth',
-            'profile_picture',
-            'phone',
-            'city',
-            'zip_code',
+            'title',
         ];
     }
 
@@ -57,13 +42,8 @@ class UserResource extends RestResource
     public function relations(RestRequest $request): array
     {
         return [
-            HasMany::make('posts', PostResource::class),
-            BelongsToMany::make('saved_posts', PostResource::class),
-            BelongsToMany::make('favorite_posts', PostResource::class),
-            BelongsToMany::make('consulted_posts', PostResource::class),
-            BelongsToMany::make('shared_posts', PostResource::class),
-            BelongsToMany::make('played_quizzes', QuizResource::class),
-            ];
+            BelongsToMany::make('quiz', QuizResource::class),
+        ];
     }
 
     /**
