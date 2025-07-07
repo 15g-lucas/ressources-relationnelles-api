@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Rest::resource('categories', CategoryController::class);
 Rest::resource('searches', SearchController::class);
+
