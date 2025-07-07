@@ -13,13 +13,16 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
-    // TODO: visibility
-
     protected $fillable = [
         'text',
         'url',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
