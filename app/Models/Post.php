@@ -28,11 +28,12 @@ class Post extends Model
         'visibility' => 'string',
     ];
 
-        /**
+    /**
      * Scope a query to only include posts visible to the given user.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \App\Models\User $user
+     * @param \App\Models\User                      $user
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeVisibleTo($query, User $user)
@@ -105,6 +106,4 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-    
 }

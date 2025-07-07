@@ -29,6 +29,7 @@ class PostResource extends Resource
         if ($user) {
             $query = $query->visibleTo($user);
         }
+
         return $query;
     }
 
