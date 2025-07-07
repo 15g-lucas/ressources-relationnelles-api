@@ -4,6 +4,7 @@ namespace App\Rest\Resources;
 
 use App\Models\Post;
 use App\Rest\Resource;
+use Illuminate\Support\Facades\Auth;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
@@ -19,6 +20,19 @@ class PostResource extends Resource
     public static $model = Post::class;
 
     /**
+     * Override the base query to filter posts by visibility for the current user.
+     */
+    public function query(RestRequest $request)
+    {
+        $user = Auth::user();
+        $query = static::$model::query();
+        if ($user) {
+            $query = $query->visibleTo($user);
+        }
+        return $query;
+    }
+
+    /**
      * The exposed fields that could be provided.
      *
      * @param RestRequest $request
@@ -31,6 +45,7 @@ class PostResource extends Resource
             'id',
             'text',
             'url',
+            'visibility',
         ];
     }
 

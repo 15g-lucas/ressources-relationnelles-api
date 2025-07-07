@@ -13,12 +13,53 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
-    // TODO: visibility
-
     protected $fillable = [
         'text',
         'url',
+        'visibility',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'visibility' => 'string',
+    ];
+
+        /**
+     * Scope a query to only include posts visible to the given user.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param \App\Models\User $user
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeVisibleTo($query, User $user)
+    {
+        // Public posts
+        $query->where('visibility', 'public');
+
+        // Posts by friends, family, colleagues
+        $relationTypes = ['friends', 'family', 'colleagues'];
+        $query->orWhere(function ($q) use ($user, $relationTypes) {
+            $q->whereIn('visibility', $relationTypes)
+              ->whereHas('user', function ($q2) use ($user, $relationTypes) {
+                  $q2->whereHas('relations', function ($q3) use ($user, $relationTypes) {
+                      $q3->where('user2_id', $user->id)
+                          ->whereIn('type', $relationTypes)
+                          ->where('state', 'accepted');
+                  })
+                  ->orWhereHas('related_to_me', function ($q3) use ($user, $relationTypes) {
+                      $q3->where('user1_id', $user->id)
+                          ->whereIn('type', $relationTypes)
+                          ->where('state', 'accepted');
+                  });
+              });
+        });
+
+        return $query;
+    }
 
     public function user(): BelongsTo
     {
@@ -64,4 +105,6 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    
 }
