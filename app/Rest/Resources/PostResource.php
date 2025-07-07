@@ -19,18 +19,6 @@ class PostResource extends Resource
      */
     public static $model = Post::class;
 
-    /**
-     * Override the base query to filter posts by visibility for the current user.
-     */
-    public function query(RestRequest $request)
-    {
-        $user = Auth::user();
-        $query = static::$model::query();
-        if ($user) {
-            $query = $query->visibleTo($user);
-        }
-        return $query;
-    }
 
     /**
      * The exposed fields that could be provided.
@@ -45,7 +33,6 @@ class PostResource extends Resource
             'id',
             'text',
             'url',
-            'visibility',
         ];
     }
 
