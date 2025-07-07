@@ -4,7 +4,6 @@ namespace App\Rest\Resources;
 
 use App\Models\Post;
 use App\Rest\Resource;
-use Illuminate\Support\Facades\Auth;
 use Lomkit\Rest\Http\Requests\RestRequest;
 use Lomkit\Rest\Relations\BelongsTo;
 use Lomkit\Rest\Relations\BelongsToMany;
@@ -18,7 +17,6 @@ class PostResource extends Resource
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
     public static $model = Post::class;
-
 
     /**
      * The exposed fields that could be provided.
