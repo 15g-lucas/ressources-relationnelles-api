@@ -24,8 +24,6 @@ class Post extends Model
      * @var array<string, string>
      */
 
-    
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -70,6 +68,4 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-    
 }
