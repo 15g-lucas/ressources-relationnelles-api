@@ -38,7 +38,7 @@ class AuthenticationControllerTest extends TestCase
     public function it_logs_in_a_user_and_returns_a_token()
     {
         $user = User::factory()->create([
-            'email' => 'jane@example.com',
+            'email'    => 'jane@example.com',
             'password' => Hash::make('password123'),
         ]);
 
@@ -62,7 +62,7 @@ class AuthenticationControllerTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJsonFragment([
-                'id' => $user->id,
+                'id'    => $user->id,
                 'email' => $user->email,
             ]);
     }
