@@ -108,4 +108,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function played_quizzes(): BelongsToMany
+    {
+        return $this->belongsToMany(Quiz::class, 'games_activity')
+        ->withTimestamps();
+    }
 }
